@@ -1,0 +1,25 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h2 {
+    float: left;
+}
+
+.body {
+    clear: both;
+}
+
+.del_form_div {
+    margin: 20px 0 0 10px;
+    float: left;
+}
+
+.date {
+    margin-top: 20px;
+}

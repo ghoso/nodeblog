@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="/javascripts/client.js" /></script>
+  </head>
+  <body>
+    <h1>Blogs</h1>
+    <p>Node.js Blog Application</p>
+    <div id="new"><a href="/new">新規登録</a></div>
+    <div id="blogs">
+      <% blogs.forEach(function(blog) { %>
+        <div class="blog">
+          <div class="article_head">
+            <h2><a href="/update/<%= blog.id %>"><%= blog.title%></a></h2>
+            <div class="del_form_div">
+              <form action="/delete" method="post" >
+                <input type="hidden" name="article_id" value="<%= blog.id %>" />
+                <input type="submit" name="del_button" id="del_button" value="削除" onClick="return del_confirm()"/>
+              </form>
+            </div>
+          </div>
+          <div class="body">
+                <%= blog.article %>
+          </div>
+            <% var blog_date = new Date(blog.date); %>
+            <% var blog_year = blog_date.getFullYear(); %>
+            <% var blog_mon = blog_date.getMonth() + 1; %>
+            <% var blog_day = blog_date.getDay(); %>
+            <% var blog_hr = blog_date.getHours(); %>
+            <% var blog_min = blog_date.getMinutes(); %>
+            <% var date_str = blog_year + "年" + blog_mon + "月" + blog_day + "日 " + blog_hr + ":" + blog_min; %>
+            <div class="date">
+               <%= date_str %>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </body>
+</html>
